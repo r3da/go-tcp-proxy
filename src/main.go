@@ -85,7 +85,7 @@ func main() {
 	}
 
 	var remoteTlsConfig *tls.Config
-	if remoteCertPath != nil && remoteKeyPath != nil {
+	if *remoteCertPath != "" && *remoteKeyPath != "" {
 		cert, err := tls.LoadX509KeyPair(*remoteCertPath, *remoteKeyPath)
 		if err != nil {
 			logger.Warn("Failed to load server certificate: %s", err.Error())
@@ -96,7 +96,7 @@ func main() {
 		remoteTlsConfig = &tls.Config{
 			Certificates: certificates,
 		}
-		if remoteCAPath != nil {
+		if *remoteCAPath != "" {
 			cacertpool := x509.NewCertPool()
 			ca, err := ioutil.ReadFile(*remoteCAPath)
 			if err != nil {
