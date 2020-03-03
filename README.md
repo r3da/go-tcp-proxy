@@ -81,6 +81,12 @@ Replacing "ip": "([^"]+)" with "ip": "REDACTED"
 
 *Note: The `-replace` option is in the form `regex~replacer`. Where `replacer` may contain `$N` to substitute in group `N`.*
 
+### Complex example to unwrap MQTT over TLS Mutual auth
+```
+$ docker run -d -p 8883:8883 -v /tmp/:/tmp proxy /tcp-proxy -pt mqtt -r mqtt.iot:8883 \
+-lkp /tmp/mqtt.iot.key -lcp /tmp/mqtt.iot.crt -rkp /tmp/client.private.key -rcp /tmp/client.cert.pem \
+-l :8883 -unwrap-tls -c -vv -h -v
+```
 
 ### Todo
 
