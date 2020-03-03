@@ -4,8 +4,12 @@ A small TCP proxy written in Go
 
 This project was intended for debugging text-based protocols. The next version will address binary protocols.
 
-## Usage
+### Build using Docker
+```
+$ docker build -t proxy .
+```
 
+## Usage
 ```
 go get github.com/jpillora/go-tcp-proxy/cmd/tcp-proxy
 ```
@@ -76,6 +80,7 @@ Replacing "ip": "([^"]+)" with "ip": "REDACTED"
 ```
 
 *Note: The `-replace` option is in the form `regex~replacer`. Where `replacer` may contain `$N` to substitute in group `N`.*
+
 
 ### Todo
 
