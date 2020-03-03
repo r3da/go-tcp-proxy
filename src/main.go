@@ -12,7 +12,7 @@ import (
 	"regexp"
 	"strings"
 
-	"proxy"
+	"github.com/r3da/go-tcp-proxy/proxy"
 )
 
 var (
